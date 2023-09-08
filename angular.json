@@ -47,6 +47,11 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -90,7 +95,8 @@
               "browserTarget": "admixer:build:production"
             },
             "development": {
-              "browserTarget": "admixer:build:development"
+              "browserTarget": "admixer:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

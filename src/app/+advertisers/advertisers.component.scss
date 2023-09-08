@@ -1,0 +1,36 @@
+.advertisers {
+  &__table {
+    height: 575px;
+    overflow: auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 1px 0 rgba(0, 0, 0, 0.20);
+
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      border-radius: 40px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 40px;
+      background: rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  &__no-results {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.mat-elevation-z8 {
+  box-shadow: none;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #F5F5F5;
+}

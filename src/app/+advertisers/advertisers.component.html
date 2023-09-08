@@ -1,0 +1,48 @@
+<div class="home">
+  <div class="mat-headline-2">Advertisers</div>
+  <main class="advertisers__main">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Search by name..." [(ngModel)]="filterValue" (input)="applyFilter()">
+      </mat-form-field>
+    </div>
+
+    <div class="advertisers__table">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z8">
+        <ng-container matColumnDef="advertiserId">
+          <th mat-header-cell *matHeaderCellDef>
+            Advertiser id
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.advertiserId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="profit">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Profit">
+            Profit
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.profit}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row class="example-element-row" *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <div class="advertisers__no-results" *ngIf="!dataSource.data.length">
+        No results found :(
+        <br>
+        Please try again
+      </div>
+    </div>
+  </main>
+</div>

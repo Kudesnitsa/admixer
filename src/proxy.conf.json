@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "http://integration-api-stage.admixer.net",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
