@@ -1,5 +1,5 @@
 <div class="home">
-  <div class="mat-headline-2">Advertisers</div>
+  <h2>Advertisers</h2>
   <main class="advertisers__main">
     <div>
       <mat-form-field appearance="outline">
@@ -14,6 +14,7 @@
         [dataSource]="dataSource"
         matSort
         class="mat-elevation-z8">
+
         <ng-container matColumnDef="advertiserId">
           <th mat-header-cell *matHeaderCellDef>
             Advertiser id
@@ -36,8 +37,14 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row class="example-element-row" *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr
+          mat-row
+          class="example-element-row"
+          *matRowDef="let row; columns: displayedColumns;"
+          (click)="onClick(row)"
+        ></tr>
       </table>
+
       <div class="advertisers__no-results" *ngIf="!dataSource.data.length">
         No results found :(
         <br>

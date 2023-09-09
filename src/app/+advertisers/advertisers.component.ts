@@ -7,6 +7,8 @@ import {MatSort, MatSortModule, Sort} from "@angular/material/sort";
 import {AdvertisersService} from "../features/advertisers/advertisers.service";
 import {AdvertiserModel} from "../features/advertisers/models";
 import {FormsModule} from "@angular/forms";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {AdvertiserComponent} from "../+advertiser/advertiser.component";
 
 @Component({
   standalone: true,
@@ -14,6 +16,7 @@ import {FormsModule} from "@angular/forms";
   templateUrl: './advertisers.component.html',
   imports: [
     CommonModule,
+    MatDialogModule,
     MatInputModule,
     MatIconModule,
     MatTableModule,
@@ -30,7 +33,8 @@ export class AdvertisersComponent implements OnInit {
 
   @ViewChild(MatSort) public sort!: MatSort;
 
-  constructor(private advertisersService: AdvertisersService) {
+  constructor(private advertisersService: AdvertisersService,
+              public dialog: MatDialog) {
   }
 
   public ngOnInit() {
@@ -47,5 +51,18 @@ export class AdvertisersComponent implements OnInit {
     this.dataSource.filter = this.filterValue.trim().toLowerCase();
     this.dataSource.data = this.advertisers.filter(item => item.name.trim().toLowerCase().includes(this.filterValue.trim().toLowerCase()));
     this.dataSource.sort = this.sort;
+  }
+
+  onClick(element: any) {
+    const dialogRef = this.dialog.open(AdvertiserComponent, {
+      panelClass: 'popup-side-page--right',
+      data: {
+        ...element,
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+    console.log(element);
   }
 }

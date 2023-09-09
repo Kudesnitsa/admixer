@@ -13,14 +13,19 @@ export class AdvertisersService {
   }
 
   public getAdvertisers(): Observable<AdvertiserModel[]> {
-    return this.httpCline.post<AdvertiserModel[]>('/api/TestTask/GetTestAdvertisers', {"userId": 1112});
+    return this.httpCline.post<AdvertiserModel[]>('/api/TestTask/GetTestAdvertisers', {userId: 1112});
   }
 
   public updateAdvertisers(
-    tenantId: string,
-    portfolioId: string,
-    id: string
+    advertiserId: string,
+    profit: string,
   ) {
-    return this.httpCline.get(`${tenantId}/portfolios/${portfolioId}/buildings/${id}/construction`)
+    return this.httpCline.post('/api/TestTask/UpdateTestAdvertiser',
+      {
+        userId: 1112,
+        advertiserId: advertiserId,
+        profit: profit
+      }
+    )
   }
 }

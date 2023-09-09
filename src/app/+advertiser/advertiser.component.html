@@ -1,0 +1,44 @@
+<mat-dialog-content class="advertiser">
+  <div class="advertiser__popup-head">
+    <mat-icon class="advertiser__popup-head-icon" mat-dialog-close matPrefix>close</mat-icon>
+    <h3>Edit Advertiser: Cairo Communications</h3>
+  </div>
+  <form [formGroup]="advertiserForm">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Search by name...">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <input matInput formControlName="country" placeholder="Search by name...">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="advertiserId" placeholder="Search by name...">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Campaign Count</mat-label>
+        <input matInput formControlName="campaignCount" placeholder="Search by name...">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Impressions</mat-label>
+        <input matInput formControlName="impressions" placeholder="Search by name...">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Profit</mat-label>
+        <input matInput formControlName="profit" placeholder="Search by name...">
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="advertiser__dialog-actions" align="start">
+  <button mat-flat-button color="primary" [mat-dialog-close]="true">SAVE</button>
+  <button mat-button color="primary" mat-dialog-close>CANCEL</button>
+</mat-dialog-actions>
